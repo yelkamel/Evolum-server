@@ -49,7 +49,8 @@ async function create(userParam) {
   // save user
   await user.save();
 
-  await return authenticate({ mail: user.mail, password: user.password })
+  // GO CONNECTE DIRECTLY 
+  return authenticate({ mail: user.mail, password: user.password });
 }
 
 async function update(id, userParam) {

@@ -1,6 +1,12 @@
 ﻿// http://jasonwatmore.com/post/2018/06/14/nodejs-mongodb-simple-api-for-authentication-registration-and-user-management
-
+// http://localhost:4000
+// https://evolum-server.herokuapp.com/users/
 // mongo start  brew services start mongodb-community@4.0
+
+//> show dbs
+//> show collections
+//> db.users.drop()
+//> show collections
 
 require('rootpath')();
 const express = require('express');
