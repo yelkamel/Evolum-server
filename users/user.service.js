@@ -19,9 +19,13 @@ async function authenticate({ mail, password }) {
     const { hash, ...userWithoutHash } = user.toObject();
     const token = jwt.sign({ sub: user.id }, config.secret);
     return {
-      ...userWithoutHash,
-      token
-    };
+      user: {
+        ...userWithoutHash,
+        token
+      },
+      message: '',
+      status: 200
+    }
   }
 }
 
