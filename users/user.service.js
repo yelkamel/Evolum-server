@@ -77,11 +77,13 @@ async function update(id, userParam) {
   Object.assign(user, userParam);
 
   await user.save();
+  const { hash, ...userWithoutHash } = user.toObject();
 
   return {
     status: 'SUCCESS',
     message: '',
     data: {
+      user: userWithoutHash
     }
   }
 }
