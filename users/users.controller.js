@@ -7,9 +7,9 @@ router.post('/authenticate', authenticate);
 router.post('/register', register);
 router.get('/', getAll);
 router.get('/current', getCurrent);
-router.get('/:id', getById);
-router.put('/:id', update);
-router.delete('/:id', _delete);
+router.get('/get/:id', getById);
+router.put('/update/:id', update);
+router.delete('/delete/:id', _delete);
 
 module.exports = router;
 
@@ -45,7 +45,7 @@ function getById(req, res, next) {
 
 function update(req, res, next) {
   userService.update(req.params.id, req.body)
-    .then(() => res.json({}))
+    .then((value) => res.json(value))
     .catch(err => next(err));
 }
 

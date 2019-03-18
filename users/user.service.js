@@ -19,12 +19,14 @@ async function authenticate({ mail, password }) {
     const { hash, ...userWithoutHash } = user.toObject();
     const token = jwt.sign({ sub: user.id }, config.secret);
     return {
-      user: {
-        ...userWithoutHash,
-        token
-      },
+      status: 'SUCCESS',
       message: '',
-      status: 200
+      data: {
+        user: {
+          ...userWithoutHash,
+          token
+        },
+      }
     }
   }
 }
@@ -75,6 +77,13 @@ async function update(id, userParam) {
   Object.assign(user, userParam);
 
   await user.save();
+
+  return {
+    status: 'SUCCESS',
+    message: '',
+    data: {
+    }
+  }
 }
 
 async function _delete(id) {
